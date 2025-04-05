@@ -1,60 +1,55 @@
 import type { Component, ComponentProps } from "svelte";
 
 export interface User {
-	id: number;
-	email: string;
-	username: string;
-	firstName: string;
-	lastName: string;
-	secondName: string;
-    avatar: string;
-	rating: number;
+	id: Number;
+	email: String;
+	username: String;
+	firstName: String;
+	lastName: String;
+	secondName: String;
+    avatar: String;
+	rating: Number;
+    city: String;
 }
 
+export interface Exchange {
+    bookOffer: Book;
+    bookRequest: Book;
+	UserOffer: User;
+	UserRequest: User;
+}
 
-export interface CompletedExchange {
-    id: number;
-    exchangedAt: Date;
-    booksExchanged: string;
+export interface Proposal {
+    FullMatch: Exchange[];
+    PartialMatch: Exchange[];
+    Recommended: Exchange[];
 }
 
 export interface Message {
-    id: number;
-    sender: string;
-    recipient: string;
-    subject: string;
-    body: string;
+    id: Number;
+    sender: String;
+    recipient: String;
+    subject: String;
+    body: String;
     timestamp: Date;
 }
 
 export interface Book {
-	author: string;
-    title: string;
+    id: Number;
+	author: String;
+    title: String;
+    data: String;
 }
 
-export interface Proposal {
-    id: number;
-    booksOffered: Book[];
-    booksRequested: Book[];
-    status: string;
+export interface ExchangeCard {
+    exchange: Exchange;
+    OfferStatus: String;
+    RequestStatus: String;
 }
 
-// interface proptypes {
-//     data: Proposal | Book;
-// }
-
-// export interface Tab {
-//     title: string;
-//     component: Component<{ data: proptypes; }, {}, "">; 
-//     action: any;
-// }
-
-export interface Tab {
-	title: string;
-    component: Component<{ data: any | null; }, {}, "">; 
-    action: any;
+export interface Review {
+    text : String;
+    user: User;
+    date: Date;
 }
 
-export interface Exchange {
-	
-}
